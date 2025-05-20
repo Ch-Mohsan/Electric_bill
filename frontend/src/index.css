@@ -1,0 +1,59 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #F8F9FA;
+  color: #212529;
+}
+
+.navbar {
+  background-color: #0B3D91 !important;
+}
+
+.navbar-brand,
+.nav-link {
+  color: #fff !important;
+}
+
+.nav-link.active {
+  color: #FFD700 !important;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: #0B3D91;
+  border-color: #0B3D91;
+}
+
+.btn-primary:hover {
+  background-color: #092c6c;
+  border-color: #092c6c;
+}
+
+.footer {
+  background-color: #0B3D91;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.hero-container {
+  background-color: #F8F9FA;
+  padding: 40px 0;
+  height: 300px;
+}
+
+.hero-title {
+  font-size: 2.2rem;
+  color: #0B3D91;
+  font-weight: 700;
+}
+
+.hero-desc {
+  font-size: 1.1rem;
+  color: #444;
+  margin-top: 10px;
+}
+
+.carousel img {
+  height: 300px;
+  object-fit: cover;
+}
