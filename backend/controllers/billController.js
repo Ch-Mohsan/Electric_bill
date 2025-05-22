@@ -1,19 +1,22 @@
-const getDB = require('../utilities/db'); // this should return a promise-based connection
+const getDB = require('../utilities/db'); 
 
 exports.addBill = async (req, res) => {
-  const { customerName, meterNumber, month, reading, amount } = req.body;
+  const { customerName, meterNumber, month, previousReading, currentReading, amount,  slab,oneUnit } = req.body;
 
-  if (!customerName || !meterNumber || !month || !reading || !amount) {
+
+  if (!customerName || !meterNumber || !month || previousReading == null || currentReading == null || amount == null || oneUnit==null|| !slab) {
     return res.status(400).json({ message: 'All fields are required' });
   }
 
   try {
     const db = await getDB();
+    console.log(req.body)
 
     const [result] = await db.execute(
-      'INSERT INTO bills (customerName, meterNumber, month, reading, amount) VALUES (?, ?, ?, ?, ?)',
-      [customerName, meterNumber, month, reading, amount]
-    );
+  'INSERT INTO bills (customerName, meterNumber, month, previousReading, currentReading, amount, slab, oneUnit) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+  [customerName, meterNumber, month, previousReading, currentReading, amount, slab, oneUnit]
+);
+
 
     res.status(201).json({ message: 'Bill added successfully', billId: result.insertId });
 

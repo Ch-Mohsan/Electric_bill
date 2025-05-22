@@ -5,7 +5,6 @@ function BillCard({ bill, onDelete, onUpdate }) {
   const [isEditing, setIsEditing] = useState(false);
 
   const handleDelete = async () => {
-  
     try {
       const response = await fetch(`http://localhost:5000/api/bills/deletebyid/${bill.id}`, {
         method: 'DELETE',
@@ -31,7 +30,10 @@ function BillCard({ bill, onDelete, onUpdate }) {
         <h5 className="card-title">{bill.customerName}</h5>
         <p className="card-text">Meter Number: {bill.meterNumber}</p>
         <p className="card-text">Month: {bill.month}</p>
-        <p className="card-text">Reading: {bill.reading}</p>
+        <p className="card-text">Previous Reading: {bill.previousReading}</p>
+        <p className="card-text">Current Reading: {bill.currentReading}</p>
+        <p className="card-text">Unites: {bill.slab}</p>
+        <p className="card-text">PerUnit: {bill.oneUnit}</p>
         <p className="card-text">Amount: Rs {bill.amount}</p>
         <button className="btn btn-danger me-2" onClick={handleDelete}>Delete</button>
         <button className="btn btn-warning" onClick={handleEditClick}>Edit</button>
